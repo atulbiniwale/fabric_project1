@@ -52,6 +52,29 @@ display(df)
 
 # CELL ********************
 
+df_unitPrice = df.withColumn("unitPrice", df["Total"] / df["Quantity"])
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+display(df_unitPrice)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
 silver_lh_path = "abfss://dev_WS@onelake.dfs.fabric.microsoft.com/LH_silver.Lakehouse/Tables/sales"
 
 df.write.format("delta")\
